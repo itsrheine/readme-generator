@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
-const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const { writeFile, generateMarkdown } = require('./utils/generateMarkdown.js');
 
 // user prompt for questioning (readme title)
 const promptUser = () => {
@@ -75,13 +74,7 @@ const promptSections = readmeData => {
             type: 'input',
             name: 'usage information',
             message: 'Provide usage information for your project',
-            validate: projUsageInput => {
-                if (projUsageInput) {
-                    return true;
-                } else {
-                    console.log('Please enter a usage information for your project!')
-                }
-            }
+            when: ({ confirmAbout }) => confirmAbout
         },
         {
             type: 'input',
@@ -100,10 +93,16 @@ const promptSections = readmeData => {
 
 promptUser()
     .then(promptSections)
-    // .then(readmeData => {
-    //     return generateReadMe(readmeData);
-    // })
-    .catch(err => {
+    .then(readmeData => {
+        return generateMarkdown(readmeData);
+    })
+    .then(pageTxt => {
+        return writeFile(pageTxt);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+        .catch(err => {
         console.log(err);
     });
 
