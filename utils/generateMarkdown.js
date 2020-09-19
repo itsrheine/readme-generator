@@ -28,8 +28,29 @@ function generateMarkdown(data) {
   //start of markdown syntax
   return `
   
-  console.log( ${ data.description })
+  # Title
+  ${ data.title }
 
+  ## Description
+  ${ data.description }
+
+  ## Installation Instructions
+  ${ data.installation }
+
+  ## Usage Information
+  ${ data.usage }
+
+  ## Licenses
+  [![License: ${ data.licenses }](https://img.shields.io/badge/License-${ data.licenses }-lightgrey.svg)]
+
+  ## Contribution
+  ${ data.contribution }
+
+  ## Test Instructions
+  ${ data.test }
+
+  ## Questions
+  ${ data.questions }
   `;
 }
 

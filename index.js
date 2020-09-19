@@ -26,16 +26,10 @@ const promptSections = readmeData => {
     if (!readmeData.projects) {
         readmeData.projects = [];
     }
-    console.log(`
-    ================
-    Add a New ReadMe
-    ================
-    `);
-
     return inquirer.prompt([
     {
             type: 'input',
-            name: 'name',
+            name: 'title',
             message: 'What is your project title? (Required)',
             validate: projTitleInput => {
                 if (projTitleInput) {
@@ -60,7 +54,7 @@ const promptSections = readmeData => {
         },
         {
             type: 'input',
-            name: 'installation instructions',
+            name: 'installation',
             message: 'Provide installation instructions for your project (Required)',
             validate: projInstallInput => {
                 if (projInstallInput) {
@@ -72,21 +66,39 @@ const promptSections = readmeData => {
         },
         {
             type: 'input',
-            name: 'usage information',
+            name: 'usage',
             message: 'Provide usage information for your project',
             when: ({ confirmAbout }) => confirmAbout
         },
         {
             type: 'input',
-            name: 'test instructions',
+            name: 'licenses',
+            message: 'Provide license information for your project',
+            when: ({ confirmAbout }) => confirmAbout
+        },
+        {
+            type: 'input',
+            name: 'contribution',
+            message: 'Who contributed to this project?',
+            when: ({ confirmAbout }) => confirmAbout
+        },
+        {
+            type: 'input',
+            name: 'test',
             message: 'Provide test instructions for your project',
             validate: projInstructInput => {
                 if (projInstructInput) {
                     return true;
                 } else {
-                    console.log('Please enter a test instructions for your project!')
+                    console.log('Please enter test instructions for your project!')
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'questions',
+            message: 'Let your viewers know on how they can reach you for questions for your project!',
+            when: ({ confirmAbout }) => confirmAbout
         }
     ]);
 };
