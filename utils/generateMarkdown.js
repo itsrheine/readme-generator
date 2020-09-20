@@ -34,20 +34,24 @@ function generateMarkdown(data) {
   ## Description
   ${ data.description }
 
-  ## Installation Instructions
+  ### Table of Contents
+
+  - [Description](#description)
+
+  ## Installation
   ${ data.installation }
 
-  ## Usage Information
+  ## Usage
   ${ data.usage }
 
-  ## Licenses
-  [![License: ${ data.licenses }](https://img.shields.io/badge/License-${ data.licenses }-lightgrey.svg)]
-
-  ## Contribution
+  ## Contributing
   ${ data.contribution }
 
-  ## Test Instructions
+  ## Test Instruct  ions
   ${ data.test }
+
+  ## Licenses
+  [![License:](https://img.shields.io/badge/License-${ data.licenses }-lightgrey.svg)]
 
   ## Questions
   ${ data.questions }

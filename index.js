@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const { writeFile, generateMarkdown } = require('./utils/generateMarkdown.js');
-joe
+
 // user prompt for questioning (readme title)
 const promptUser = () => {
     return inquirer.prompt([
@@ -68,19 +68,16 @@ const promptSections = readmeData => {
             type: 'input',
             name: 'usage',
             message: 'Provide usage information for your project',
-            when: ({ confirmAbout }) => confirmAbout
         },
         {
             type: 'input',
             name: 'licenses',
             message: 'Provide license information for your project',
-            when: ({ confirmAbout }) => confirmAbout
         },
         {
             type: 'input',
             name: 'contribution',
             message: 'Who contributed to this project?',
-            when: ({ confirmAbout }) => confirmAbout
         },
         {
             type: 'input',
