@@ -97,8 +97,8 @@ const promptSections = readmeData => {
         {
             type: 'input',
             name: 'questions',
-            message: 'Let your viewers know on how they can reach you for questions for your project!',
-            when: ({ confirmAbout }) => confirmAbout
+            message: 'How can users reach you? (Check all that apply)',
+            choices: ['Email', 'Github', 'LinkedIn', 'Other']
         }
     ]);
 };
