@@ -28,33 +28,44 @@ function generateMarkdown(data) {
   //start of markdown syntax
   return `
   
-  # Title
-  ${ data.title }
+  # ${data.title}
+  
+  ![License: ${data.licenses}](https://img.shields.io/badge/License-${data.licenses}-0298c3.svg)
+  
+  <br>
 
-  ## Description
-  ${ data.description }
-
-  ### Table of Contents
+  # Table of Contents
 
   - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution Guidelines](#contribution)
+  - [Test Instructions](#test)
+  
+  <br>
 
-  ## Installation
-  ${ data.installation }
+  # Description
+  ${data.description}
 
-  ## Usage
-  ${ data.usage }
+  # Installation
+  ${data.installation}
 
-  ## Contributing
-  ${ data.contribution }
+  # Usage
+  ${data.usage}
 
-  ## Test Instruct  ions
-  ${ data.test }
+  # Contribution Guidelines
+  ${data.contribution}
 
-  ## Licenses
-  [![License:](https://img.shields.io/badge/License-${ data.licenses }-lightgrey.svg)]
+  # Test Instructions
+  ${data.test}
 
-  ## Questions
-  ${ data.questions }
+  # Licenses
+  This README is covered under ${data.licenses} license(s).
+
+  # Questions
+  If you have any questions or concerns, please feel free to reach out to my:
+  Email: [${data.email}](${data.email})
+  Github: [${data.username}](https://github.com/${data.username})
   `;
 }
 
