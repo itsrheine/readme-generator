@@ -57,10 +57,11 @@ const promptSections = () => {
             type: 'input',
             name: 'email',
             message: 'Enter your email address:',
-        },
+        }
     ]);
 };
 
+// execute functions
 promptSections()
     .then(generateMarkdown)
     .then(pageTxt => {
@@ -72,18 +73,3 @@ promptSections()
     .catch(err => {
         console.log(err);
     });
-
-
-
-
-// function to write README files
-// function writeToFile(fileName, data) {
-// }
-
-// function to initialize program
-// function init() {
-
-// }
-
-// function call to initialize program
-// init();

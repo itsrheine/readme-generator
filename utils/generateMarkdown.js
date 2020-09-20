@@ -64,10 +64,13 @@ function generateMarkdown(data) {
 
   # Questions
   If you have any questions or concerns, please feel free to reach out to my:
+  
+  ##
   Email: [${data.email}](${data.email})
+  ##
   Github: [${data.username}](https://github.com/${data.username})
   `;
-}
+};
 
 module.exports = { writeFile, generateMarkdown };
 
